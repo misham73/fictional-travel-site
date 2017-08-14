@@ -51,6 +51,10 @@
     &--pull-right {
         @mixin atMedium {
             float: right;
+
+            .is-current-link {
+                color: #fabb69;
+            }
         }
     }
 }
