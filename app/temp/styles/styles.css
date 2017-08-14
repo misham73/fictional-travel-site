@@ -1271,6 +1271,7 @@ a {
 @media (min-width: 800px) {
 
 .site-header__menu-content {
+            opacity: 1;
             display: block;
             z-index: 1;
             padding-top: 0;
@@ -1358,4 +1359,18 @@ a {
 .primary-nav--pull-right {
             float: right
     }
+    }
+
+.reveal-item {
+    opacity: 0;
+    -webkit-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+}
+
+.reveal-item--is-visible {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
