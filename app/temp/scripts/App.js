@@ -11093,10 +11093,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 "use strict";
 
 
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 var _MobileMenu = __webpack_require__(3);
 
 var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
@@ -11104,6 +11100,10 @@ var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 var _RevealOnScroll = __webpack_require__(4);
 
 var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
 
 var _StickyHeader = __webpack_require__(5);
 
@@ -11265,6 +11265,7 @@ var StickyHeader = function () {
     function StickyHeader() {
         _classCallCheck(this, StickyHeader);
 
+        this.lazyimages = (0, _jquery2.default)(".lazyload");
         this.siteHeader = (0, _jquery2.default)(".site-header");
         this.headerTriggerElement = (0, _jquery2.default)(".large-hero__title");
         this.pageSections = (0, _jquery2.default)(".page-section");
@@ -11272,9 +11273,17 @@ var StickyHeader = function () {
         this.createHeaderWaypoint();
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
     }
 
     _createClass(StickyHeader, [{
+        key: 'refreshWaypoints',
+        value: function refreshWaypoints() {
+            this.lazyimages.on("load", function () {
+                Waypoint.refreshAll();
+            });
+        }
+    }, {
         key: 'addSmoothScrolling',
         value: function addSmoothScrolling() {
             this.headerLinks.smoothScroll();
